@@ -20,33 +20,46 @@ for(var i = 0; i < word.length; i++) {
 var answerArray = [];
 var missedArray = [];
 
+var lives = 7;
+
 document.getElementById("new-word").innerHTML = 
         "<p>" + blankArray.join(" ") + "</p>" +
         "<p>" + "remaining letters left to guess: " + remainingChar + "<p>" +
-        "<p>" + "Missed: " + missedArray + "<p>"
+        "<p>" + "Missed: " + missedArray.join(" ") + "<p>" +
+        "<p>" + "lives: " + lives + "</p>"
 
 // //Capture User Guess and set up conditionals
 document.addEventListener('keypress', function(input) {
     var letter = input.key;
     var letterCount = 0;
+    //if user guesses correct letter
     if(word.includes(letter)) {
         for(var j = 0; j < word.length; j++) {
             if(word[j] === letter) {
                 blankArray[j] = letter;
                 letterCount++;
-            }                   
+            }                               
         }
-        remainingChar -= letterCount;
-    }
-    else {
-        missedArray.push(letter);
-    }
-    
+                remainingChar -= letterCount;
+    } 
+    //capture wrong guess
+            else if(missedArray.includes(letter) == false) {
+                missedArray.push(letter);
+                lives--;
+            }
+    //display outcomes Win/Loss
+            if(blankArray.join("") === word) {
+                alert("You Win!");
+            }
+            if(lives < 1) {
+                alert("You Lose!");
+            }
     
     document.getElementById("new-word").innerHTML = 
     "<p>" + blankArray.join(" ") + "</p>" +
     "<p>" + "remaining letters left to guess: " + remainingChar + "<p>" +
-    "<p>" + "Missed: " + missedArray + "<p>"
+    "<p>" + "Missed: " + missedArray.join(" ") + "<p>" +
+    "<p>" + "lives: " + lives + "</p>"
     
 });
         
