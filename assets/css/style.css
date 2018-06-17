@@ -1,14 +1,50 @@
 body {
-    background-image: url("../images/soccer.jpg");
+    background-image: url("../images/stadium.jpg");
     background-size: cover;
+    font-family: 'Krona One', sans-serif;
 }
 
-h1 {
+.heading {
     color: white;
+    text-align: center;
+    font-size: 22px;
+    padding: 0;
+}
+
+#word-cup-edition {
+    font-size: 6px;
+}
+
+.backdrop {
+    margin: auto;
+    width: 30%;
+    height: 85%;
+    background: rgba(0, 64, 107, 0.7);
+    border-radius: 5px;
+    padding: 12px;
+}
+
+#outcome {
+    font-size: 20px;
     text-align: center;
 }
 
 #new-word {
     color: white;
-    font-size: 20px;
+    font-size: 16px;
+    text-align: center;
 }
+
+#blank-spaces {
+    font-size: 36px;
+    color: white;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#reset {
+    background: white;
+    border: 1px solid black;
+    padding: 6px;
+}
+
